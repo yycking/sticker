@@ -14,6 +14,12 @@
 		F2A9641A1CA0F736003C8513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A964181CA0F736003C8513 /* LaunchScreen.storyboard */; };
 		F2A964251CA0F736003C8513 /* stickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A964241CA0F736003C8513 /* stickerTests.swift */; };
 		F2A964301CA0F736003C8513 /* stickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9642F1CA0F736003C8513 /* stickerUITests.swift */; };
+		F2A9652C1CA15F8F003C8513 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2A964DC1CA15F8F003C8513 /* background.jpg */; };
+		F2A9657A1CA295CB003C8513 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A965791CA295CB003C8513 /* EditViewController.swift */; };
+		F2A9657C1CA29EBD003C8513 /* StickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9657B1CA29EBD003C8513 /* StickerViewController.swift */; };
+		F2A965821CA2BE11003C8513 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A965811CA2BE11003C8513 /* CollectionViewController.swift */; };
+		F2A965861CA2C437003C8513 /* GobackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A965851CA2C437003C8513 /* GobackViewController.swift */; };
+		F2A965881CA2C863003C8513 /* stickers in Resources */ = {isa = PBXBuildFile; fileRef = F2A965871CA2C863003C8513 /* stickers */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F286CFEE1CB0104000B0F36F /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = SOURCE_ROOT; };
+		F286CFEF1CB0104000B0F36F /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		F286CFF01CB0104000B0F36F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = SOURCE_ROOT; };
 		F2A9640C1CA0F735003C8513 /* sticker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sticker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A9640F1CA0F736003C8513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2A964111CA0F736003C8513 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +56,12 @@
 		F2A9642B1CA0F736003C8513 /* stickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A9642F1CA0F736003C8513 /* stickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stickerUITests.swift; sourceTree = "<group>"; };
 		F2A964311CA0F736003C8513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2A964DC1CA15F8F003C8513 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		F2A965791CA295CB003C8513 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		F2A9657B1CA29EBD003C8513 /* StickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerViewController.swift; sourceTree = "<group>"; };
+		F2A965811CA2BE11003C8513 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		F2A965851CA2C437003C8513 /* GobackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GobackViewController.swift; sourceTree = "<group>"; };
+		F2A965871CA2C863003C8513 /* stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stickers; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +112,20 @@
 		F2A9640E1CA0F736003C8513 /* sticker */ = {
 			isa = PBXGroup;
 			children = (
+				F286CFEE1CB0104000B0F36F /* doc */,
+				F286CFEF1CB0104000B0F36F /* LICENSE.txt */,
+				F286CFF01CB0104000B0F36F /* readme.md */,
+				F2A964DB1CA15F8F003C8513 /* resource */,
 				F2A9640F1CA0F736003C8513 /* AppDelegate.swift */,
 				F2A964111CA0F736003C8513 /* ViewController.swift */,
 				F2A964131CA0F736003C8513 /* Main.storyboard */,
 				F2A964161CA0F736003C8513 /* Assets.xcassets */,
 				F2A964181CA0F736003C8513 /* LaunchScreen.storyboard */,
 				F2A9641B1CA0F736003C8513 /* Info.plist */,
+				F2A965791CA295CB003C8513 /* EditViewController.swift */,
+				F2A9657B1CA29EBD003C8513 /* StickerViewController.swift */,
+				F2A965811CA2BE11003C8513 /* CollectionViewController.swift */,
+				F2A965851CA2C437003C8513 /* GobackViewController.swift */,
 			);
 			path = sticker;
 			sourceTree = "<group>";
@@ -123,6 +146,15 @@
 				F2A964311CA0F736003C8513 /* Info.plist */,
 			);
 			path = stickerUITests;
+			sourceTree = "<group>";
+		};
+		F2A964DB1CA15F8F003C8513 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				F2A964DC1CA15F8F003C8513 /* background.jpg */,
+				F2A965871CA2C863003C8513 /* stickers */,
+			);
+			path = resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,8 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2A9641A1CA0F736003C8513 /* LaunchScreen.storyboard in Resources */,
+				F2A9652C1CA15F8F003C8513 /* background.jpg in Resources */,
 				F2A964171CA0F736003C8513 /* Assets.xcassets in Resources */,
 				F2A964151CA0F736003C8513 /* Main.storyboard in Resources */,
+				F2A965881CA2C863003C8513 /* stickers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A965821CA2BE11003C8513 /* CollectionViewController.swift in Sources */,
+				F2A965861CA2C437003C8513 /* GobackViewController.swift in Sources */,
 				F2A964121CA0F736003C8513 /* ViewController.swift in Sources */,
+				F2A9657C1CA29EBD003C8513 /* StickerViewController.swift in Sources */,
 				F2A964101CA0F736003C8513 /* AppDelegate.swift in Sources */,
+				F2A9657A1CA295CB003C8513 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +525,7 @@
 				F2A964361CA0F736003C8513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2A964371CA0F736003C8513 /* Build configuration list for PBXNativeTarget "stickerTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +534,7 @@
 				F2A964391CA0F736003C8513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2A9643A1CA0F736003C8513 /* Build configuration list for PBXNativeTarget "stickerUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +543,7 @@
 				F2A9643C1CA0F736003C8513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
