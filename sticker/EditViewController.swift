@@ -29,7 +29,7 @@ class EditViewController: UIViewController, UIGestureRecognizerDelegate {
             if let selected = controller.collectionView?.indexPathsForSelectedItems() {
                 let image = controller.images[selected[0].row]
                 let sticker = UIImageView(image: UIImage(named: image))
-                self.view.addSubview(sticker)
+                self.view.insertSubview(sticker, belowSubview: self.view.viewWithTag(20)!)
                 sticker.center = self.view.center
                 sticker.userInteractionEnabled = true
                 stickers.append(sticker)
