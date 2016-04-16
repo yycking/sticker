@@ -50,10 +50,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismissViewControllerAnimated(true, completion: nil)
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("Editor") as! EditViewController
-        let imageView = vc.view.viewWithTag(10) as! UIImageView
-        let picture = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imageView.image = picture
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.presentViewController(vc, animated: true, completion: {
+            let imageView = vc.imageView
+            let picture = info[UIImagePickerControllerOriginalImage] as! UIImage
+            imageView.image = picture
+        })
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

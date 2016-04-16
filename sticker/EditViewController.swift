@@ -9,6 +9,8 @@
 import UIKit
 
 class EditViewController: UIViewController, UIGestureRecognizerDelegate {
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var imageView: UIImageView!
     
     var defaultStickerRect: CGRect!
     var stickers: [UIImageView] = []
@@ -29,7 +31,7 @@ class EditViewController: UIViewController, UIGestureRecognizerDelegate {
             if let selected = controller.collectionView?.indexPathsForSelectedItems() {
                 let image = controller.images[selected[0].row]
                 let sticker = UIImageView(image: UIImage(named: image))
-                self.view.insertSubview(sticker, belowSubview: self.view.viewWithTag(20)!)
+                self.view.insertSubview(sticker, belowSubview: self.toolBar)
                 sticker.center = self.view.center
                 sticker.userInteractionEnabled = true
                 stickers.append(sticker)
@@ -50,7 +52,7 @@ class EditViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func getImageRectFromSticker(sticker: UIImageView)->CGRect {
-        let imageView = self.view.viewWithTag(10) as! UIImageView
+        let imageView = self.imageView
         let imageSize: CGSize! = imageView.image?.size
         var imageFrame = imageView.frame
         if imageSize.width/imageSize.height <  imageFrame.width/imageFrame.height{
@@ -75,7 +77,7 @@ class EditViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func export(sender: AnyObject) {
-        let image = (self.view.viewWithTag(10) as! UIImageView).image!
+        let image = self.imageView.image!
         
         UIGraphicsBeginImageContext(image.size)
         let context = UIGraphicsGetCurrentContext()

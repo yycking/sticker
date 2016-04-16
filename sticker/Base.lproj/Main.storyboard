@@ -71,10 +71,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xlf-Xl-gRq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xlf-Xl-gRq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999996" tag="20" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9f-tJ-fwD">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9f-tJ-fwD">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="aj7-sM-Qgt"/>
@@ -111,6 +111,10 @@
                             <constraint firstItem="xlf-Xl-gRq" firstAttribute="height" secondItem="nRW-f0-hgo" secondAttribute="height" id="tXs-Eb-2y0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="xlf-Xl-gRq" id="g3R-dW-FbY"/>
+                        <outlet property="toolBar" destination="l9f-tJ-fwD" id="i2d-cD-qhY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1V-is-cYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
