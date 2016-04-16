@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UIGestureRecognizerDelegate {
+class EditViewController: UIViewController {
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var imageView: UIImageView!
     
@@ -24,34 +24,17 @@ class EditViewController: UIViewController, UIGestureRecognizerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    /*
     @IBAction func unwindToAddSticker(segue: UIStoryboardSegue) {
         if segue.identifier == "SelectSticker" {
             let controller = segue.sourceViewController as! CollectionViewController
             if let selected = controller.collectionView?.indexPathsForSelectedItems() {
-                let image = controller.images[selected[0].row]
-                let sticker = UIImageView(image: UIImage(named: image))
-                self.view.insertSubview(sticker, belowSubview: self.toolBar)
-                sticker.center = self.view.center
-                sticker.userInteractionEnabled = true
-                stickers.append(sticker)
                 
-                defaultStickerRect = sticker.frame
-                
-                sticker.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(EditViewController.handleMove(_:))))
-                
-                let pinch = UIPinchGestureRecognizer(target: self, action: #selector(EditViewController.handleScale(_:)))
-                sticker.addGestureRecognizer(pinch)
-                pinch.delegate = self
-                
-                let rotation = UIRotationGestureRecognizer(target: self, action: #selector(EditViewController.handleRotate(_:)))
-                sticker.addGestureRecognizer(rotation)
-                rotation.delegate = self
             }
         }
-    }
+    }*/
     
-    func getImageRectFromSticker(sticker: UIImageView)->CGRect {
+    func getImageFrame() -> CGRect {
         let imageView = self.imageView
         let imageSize: CGSize! = imageView.image?.size
         var imageFrame = imageView.frame
@@ -64,6 +47,52 @@ class EditViewController: UIViewController, UIGestureRecognizerDelegate {
             imageFrame.origin.y = (imageFrame.height - h) * CGFloat(0.5)
             imageFrame.size.height = h
         }
+        
+        return imageFrame;
+    }
+    
+    func addSticker(image: String, on: CGPoint) {
+        let sticker = UIImageView(image: UIImage(named: image))
+        self.view.insertSubview(sticker, belowSubview: self.toolBar)
+        sticker.userInteractionEnabled = true
+        stickers.append(sticker)
+        
+        let imageView = self.imageView
+        let imageSize: CGSize! = imageView.image?.size
+        let imageFrame = getImageFrame()
+        
+        let scale = imageFrame.width / imageSize.width
+        sticker.center.x = self.view.center.x - imageFrame.width*0.5 + on.x * scale
+        sticker.center.y = self.view.center.y + imageFrame.height*0.5 - on.y * scale
+        
+        defaultStickerRect = sticker.frame
+        
+        let drag = DragGestureRecognizer(target: self, action: #selector(EditViewController.handleDrag(_:)))
+        var frame = self.view.frame
+        frame.size.height = frame.size.height - 44
+        drag.focusRect = frame
+        sticker.addGestureRecognizer(drag)
+    }
+    
+    // detect mouth and add death breath
+    func faceDetector() {
+        let imageView = self.imageView
+        let image = CIImage(CGImage: imageView.image!.CGImage!)
+        
+        let detector = CIDetector(ofType:CIDetectorTypeFace, context:nil, options:[CIDetectorAccuracy: CIDetectorAccuracyLow])
+        let features:NSArray = detector.featuresInImage(image)
+        
+        for feature in features {
+            if feature.hasMouthPosition == true {
+                self.addSticker("stickers/atomic breath/deathray.png", on: feature.mouthPosition)
+            }
+        }
+    }
+    
+    func getImageRectFromSticker(sticker: UIImageView)->CGRect {
+        let imageView = self.imageView
+        let imageSize: CGSize! = imageView.image?.size
+        let imageFrame = getImageFrame()
         
         let scale = imageSize.width / imageFrame.width
         let stickerFrame = defaultStickerRect
@@ -109,32 +138,13 @@ class EditViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - UIGestureRecognizerDelegate
     
-    func handleMove(recognizer:UIPanGestureRecognizer) {
-        let translation = recognizer.translationInView(self.view)
-        if let view = recognizer.view {
-            view.center = CGPoint(x:view.center.x + translation.x,
-                                  y:view.center.y + translation.y)
-        }
-        recognizer.setTranslation(CGPointZero, inView: self.view)
-    }
-    
-    func handleScale(recognizer:UIPinchGestureRecognizer) {
+    func handleDrag(recognizer:DragGestureRecognizer) {
         if let view = recognizer.view {
             view.transform = CGAffineTransformScale(view.transform, recognizer.scale, recognizer.scale)
+            view.transform = CGAffineTransformRotate(view.transform, recognizer.rotate)
         }
-        
+        recognizer.rotate = 0
         recognizer.scale = 1
-    }
-    
-    func handleRotate(recognizer:UIRotationGestureRecognizer) {
-        if let view = recognizer.view {
-            view.transform = CGAffineTransformRotate(view.transform, recognizer.rotation)
-        }
-        recognizer.rotation = 0
-    }
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
     }
     
 }

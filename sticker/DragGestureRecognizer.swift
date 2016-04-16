@@ -28,7 +28,7 @@ import UIKit.UIGestureRecognizerSubclass
 let π = CGFloat(M_PI)
 
 class DragGestureRecognizer: UIGestureRecognizer {
-
+    var focusRect:CGRect!
     var rotate:CGFloat = 0
     var scale:CGFloat = 1
     

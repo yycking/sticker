@@ -54,6 +54,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let imageView = vc.imageView
             let picture = info[UIImagePickerControllerOriginalImage] as! UIImage
             imageView.image = picture
+            vc.faceDetector()
         })
     }
     

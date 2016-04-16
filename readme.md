@@ -1,10 +1,11 @@
-#Sticker Camera
+#Godzilla Camera
+
+![Screen Shot](doc/Screen Shot.png)
 
 ##feature
 
-* re adjustable sticker size
-* touch to move image to your liking
+* detect and add death breath over mouth
+* touch to rotate and scale death breath to your liking
 
 ##todo
-* one finger to rotate and pinch
-* removable sticker
+* add others death breath 
